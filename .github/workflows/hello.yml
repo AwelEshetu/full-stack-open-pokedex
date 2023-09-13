@@ -1,29 +1,14 @@
-name: Hello world
+name: hello_world_job
 
 on:
   push:
     branches:
-       - master
+      - master
 
 jobs:
-
-    hello_world_job:
-      steps:
-        - name: Set up job
-          runs-on: ubuntu-latest
-    
-      steps:
-        - name: Say hello
-          run: |
-            echo "Hello World!"
-
-      steps:
-        - name: Now it is
-          run: date
-
-      steps:
-        - name: Directory content
-          run: ls -l
-          
-   
-  
+  hello_world_job:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Say hello
+        run: |
+          echo "Hello World!"
