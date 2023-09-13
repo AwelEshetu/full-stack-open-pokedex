@@ -8,10 +8,22 @@ on:
 jobs:
 
     hello_world_job:
-      runs-on: ubuntu latest
+      steps:
+        - name: Set up job
+          runs-on: ubuntu-latest
+    
       steps:
         - name: Say hello
           run: |
             echo "Hello World!"
+
+      steps:
+        - name: Now it is
+          run: date
+
+      steps:
+        - name: Directory content
+          run: ls -l
+          
    
   
