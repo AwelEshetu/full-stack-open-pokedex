@@ -1,0 +1,27 @@
+name: Deployment pipeline
+
+on:
+  push:
+    branch:
+      - master
+
+jobs:
+  # create virtual environment for pipeline that runs specified OS
+  simple_deployment_pipeline:
+    runs-on: ubuntu-latest
+
+  steps:
+    # checkouts our specific version of code from repository to virual env of the pipeline
+    - uses: actions/checkout@v3
+    # sets up nodejs and pin the version
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    # install application dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # check styles
+    - name: Check styles
+      run: npm run eslint 
