@@ -26,10 +26,14 @@ jobs:
       - name: Check styles
         run: npm run eslint 
 
+      # build
+      - name: build
+        run: npm run build
+
       # setup e2e testing
       - name: e2e tests
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v2
         with:
           command: npm run test:e2e
           start: npm run start-prod
-          wait-on: 'http://[::1]:5000'
+          wait-on: http://localhost:5000
