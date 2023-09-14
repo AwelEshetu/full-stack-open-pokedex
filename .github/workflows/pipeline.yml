@@ -16,7 +16,7 @@ jobs:
       # sets up nodejs and pin the version
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
 
       # install application dependencies
       - name: Install dependencies
@@ -30,9 +30,7 @@ jobs:
       - name: e2e tests
         uses: cypress-io/github-action@v5
         with:
-          quiet: false
-          headless: true
-          record: false
+          install: false
           command: npm run test:e2e
           start: npm run start-prod
           wait-on: http://localhost:5000
