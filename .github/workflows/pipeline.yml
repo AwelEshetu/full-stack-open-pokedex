@@ -8,8 +8,8 @@ on:
 jobs:
   # create virtual environment for pipeline that runs specified OS
   simple_deployment_pipeline:
-    runs-on: ubuntu-20.04
-
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       # checkouts our specific version of code from repository to virual env of the pipeline
       - uses: actions/checkout@v3
